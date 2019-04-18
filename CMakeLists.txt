@@ -26,3 +26,4 @@ add_executable(mtrc main.cpp
 	${SRCS} ${NODES} 
 	${BISON_grammar_OUTPUTS} 
 	${FLEX_scan_OUTPUTS})
+target_link_libraries(mtrc stdc++)
