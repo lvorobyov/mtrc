@@ -113,8 +113,6 @@ int write_object(mtrc_object& obj, FILE* fout)
 	aux_symbol_text.Section.CheckSum = 0;
 	aux_symbol_text.Section.Number = 0;
 	aux_symbol_text.Section.Selection = 0;
-	aux_symbol_text.Section.bReserved = 0;
-	aux_symbol_text.Section.HighNumber = 0;
 
 	char proc_name[] = "_get_rule";
 	char data_name[] = "_start_state";
@@ -143,8 +141,6 @@ int write_object(mtrc_object& obj, FILE* fout)
 	aux_symbol_data.Section.CheckSum = 0;
 	aux_symbol_data.Section.Number = 0;
 	aux_symbol_data.Section.Selection = 0;
-	aux_symbol_data.Section.bReserved = 0;
-	aux_symbol_data.Section.HighNumber = 0;
 
 	symbols[5].N.Name.Short = 0;
 	symbols[5].N.Name.Long = 4 + strlen(proc_name) + 1;
@@ -163,7 +159,7 @@ int write_object(mtrc_object& obj, FILE* fout)
 	fwrite(&obj.begin_state, sizeof(int), 1, fout);
 	fwrite(symbols, sizeof(IMAGE_SYMBOL), 1, fout);
 	fwrite(aux_sym_file, sizeof(IMAGE_AUX_SYMBOL), n_symbs, fout);
-	delete aux_sym_file;
+	delete[] aux_sym_file;
 	fwrite(&symbols[1], sizeof(IMAGE_SYMBOL), 2, fout);
 	fwrite(&aux_symbol_text, sizeof(IMAGE_AUX_SYMBOL), 1, fout);
 	fwrite(&symbols[3], sizeof(IMAGE_SYMBOL), 2, fout);
