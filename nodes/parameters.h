@@ -21,8 +21,11 @@ class parameter_list : public code_list
 public:
 	parameter* getParameter(int id)
 	{
-		for each (parameter* par in list)
+		for (code_block* block: list)
 		{
+            auto par = dynamic_cast<parameter*>(block);
+            if (par == nullptr)
+                continue;
 			if (par->getIdentifier() == id)
 				return par;
 		}
@@ -31,9 +34,12 @@ public:
 	int indexOf(int id)
 	{
 		int index = -1;
-		for each (parameter* par in list)
+		for (code_block* block: list)
 		{
 			index++;
+            auto par = dynamic_cast<parameter*>(block);
+            if (par == nullptr)
+                continue;
 			if (par->getIdentifier() == id)
 				return index;
 		}
