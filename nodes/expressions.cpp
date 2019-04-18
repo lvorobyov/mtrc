@@ -99,7 +99,7 @@ unsigned char* direction_arg::writeCode(unsigned char* ptr)
 		0xC1, 0xE1, 0x10,
 		0x01, 0xC8
 	};
-	for each (unsigned char var in array2)
+	for (unsigned char var: array2)
 	{
 		*ptr++ = var;
 	}
