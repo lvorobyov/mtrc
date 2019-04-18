@@ -17,6 +17,7 @@ if (BISON_FOUND)
 	ADD_FLEX_BISON_DEPENDENCY(scan grammar)
 endif ()
 
+include_directories(.)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB SRCS mtrc-*.cpp)
