@@ -6,12 +6,14 @@ project(mtrc)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(BISON REQUIRED)
-find_package(FLEX REQUIRED)
+find_package(BISON)
+find_package(FLEX)
 
-BISON_TARGET(grammar grammar.y ${CMAKE_CURRENT_BINARY_DIR}/grammar.tab.cpp)
-FLEX_TARGET(scan scan.l        ${CMAKE_CURRENT_BINARY_DIR}/scan.flex.cpp)
-ADD_FLEX_BISON_DEPENDENCY(scan grammar)
+if (BISON_FOUND)
+	BISON_TARGET(grammar grammar.y ${CMAKE_CURRENT_BINARY_DIR}/grammar.tab.cpp)
+	FLEX_TARGET(scan scan.l        ${CMAKE_CURRENT_BINARY_DIR}/scan.flex.cpp)
+	ADD_FLEX_BISON_DEPENDENCY(scan grammar)
+endif ()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
