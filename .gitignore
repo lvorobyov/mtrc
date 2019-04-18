@@ -1,5 +1,9 @@
 Release
 Debug
+.idea/dictionaries/*
+.idea/inspectionProfiles
+.idea/workspace.xml
+*.iml
 *build*
 *.obj
 *.tab.*
