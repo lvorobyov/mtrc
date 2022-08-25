@@ -1,0 +1,12 @@
+= mtrc
+
+Сompiler for the https://github.com/lvorobyov/statestep[Turing machine emulator]
+
+== Build
+
+Prerequisites:
+
+- flex, bison installed
+- MCVC++ 2015 or later
+
+To build this compiller you may run nmake or other build tools.
