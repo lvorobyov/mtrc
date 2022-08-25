@@ -34,7 +34,7 @@ public:
 	int indexOf(int id)
 	{
 		int index = -1;
-		for (code_block* block: list)
+		for (code_block* par: list)
 		{
 			index++;
             auto par = dynamic_cast<parameter*>(block);

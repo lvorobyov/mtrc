@@ -26,7 +26,7 @@ private:
 class subprogram_unit : public code_block
 {
 public:
-	int getOffset(const unsigned char* current) const { return static_cast<int>(this->address - current); }
+	int getOffset(const unsigned char* current) const { return static_cast<int>(this->address) - static_cast<int>(current); }
 protected:
 	unsigned char* address;
 };
